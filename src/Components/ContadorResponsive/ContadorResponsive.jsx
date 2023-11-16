@@ -43,28 +43,11 @@ const ContadorResponsive = () => {
       </Box>
       <Box display='flex' gap='.75rem'>
         <Box>
-          {operacion == '-1' && <MotionOperacion xInicial={'0%'} xAnimate={'-50%'} operacion={operacion} contador={contador} color={'red.400'}/>
-          // <motion.div
-          //             initial={{x:'0%',y:-50,scale: 1}}
-          //             animate={{x:'-50%',y:-50,scale: 0}} 
-          //             transition={{ type:'spring',stiffness: 20 }}
-          //             key={`${contador}`}>
-          //   <Text as='strong' fontSize='5xl' color='red.400' position='fixed' textAlign='center'>{operacion}</Text>  
-          // </motion.div>
-          }
+          {operacion == '-1' && <MotionOperacion xInicial={'0%'} xAnimate={'-50%'} operacion={operacion} contador={contador} color={'red.400'}/>}
           <Buttons contador={contador} handler={restarContador} texto={'Restar'} disabled={contador <= 0}/>
         </Box>
         <Box>
-          {operacion == '+1' && <MotionOperacion xInicial={'50%'} xAnimate={'50%'} operacion={operacion} contador={contador} color={'green.400'}/>
-          // <motion.div
-
-          //             initial={{x:'50%',y:-50,scale: 1}}
-          //             animate={{x:'50%',y:-50,scale: 0}} 
-          //             transition={{ type:'spring',stiffness: 20 }}
-          //             key={`${contador}`}>
-          //   <Text as='strong' fontSize='5xl' color='green.400' position='absolute' textAlign='center'>{operacion}</Text>  
-          // </motion.div>
-          }
+          {operacion == '+1' && <MotionOperacion xInicial={'50%'} xAnimate={'50%'} operacion={operacion} contador={contador} color={'green.400'}/>}
           <Buttons contador={contador} handler={sumarContador} texto={'Sumar'}/>
         </Box>
 
