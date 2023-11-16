@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState,useRef } from 'react'
 import {Box,Text,Link,Button,Center,Grid,GridItem} from '@chakra-ui/react'
 import { motion,AnimatePresence } from 'framer-motion';
 import { FaArrowDownLong,FaArrowUpLong } from 'react-icons/fa6';
@@ -15,23 +15,58 @@ const MotionOperacion = ({xyInitial,xyAnimate,operacion,contador,color}) => {
   )
 }
 
-const MotionDrag = () => {
+
+
+const MotionDrag = ({restar,sumar}) => {
+
+  const [dragDown,setDragDown] = useState(0);
+  const [dragUp,setDragUp] = useState(0)
+
+  const captureStartDrag = (e,info) => {
+    setDragDown(info.point.y);
+    setDragUp(info.point.y);
+  }
+
+  const captureDownEndDrag = (e,info) => {
+    if(dragDown < info.point.y){
+      restar();
+
+    }
+  }
+
+  const captureUpEndDrag = (e,info) => {
+    if(dragDown > info.point.y){
+      sumar();
+
+    }
+  }
   
+
   return (
     <Grid templateColumns='repeat(2,1fr)'
-          borderWidth={3} borderColor='#4354658c' h='200px' w='full' 
+          borderWidth={3} borderColor='#4354658c' w='full' 
           borderStyle='dashed' rounded='md'>
-      <GridItem>
-        <Center h='full' color='red.400' display='flex' flexDirection='column'>
-          <FaArrowDownLong size='5rem'/>
-          <Text>Deslizar abajo</Text>
+      <GridItem my='auto' py='auto'>
+        <motion.div drag='y' dragConstraints={{left:0,right:0,top:0,bottom:0}}
+                    onDragStart={captureStartDrag} onDragEnd={captureDownEndDrag}
+                    dragElastic={{top:0,bottom:0.2}}>
+        <Center  py='auto' color='red.400'
+                display='flex' h='200px' flexDirection='column'>
+            <FaArrowDownLong size='5rem'/>
+            <Text>Deslizar abajo</Text>
         </Center>
+          </motion.div>
       </GridItem>
       <GridItem>
-        <Center h='full' color='green.400' display='flex' flexDirection='column'>
-          <FaArrowUpLong size='5rem'/>
-          <Text>Deslizar arriba</Text>
-        </Center>
+      <motion.div drag='y' dragConstraints={{left:0,right:0,top:0,bottom:0}}
+                    onDragStart={captureStartDrag} onDragEnd={captureUpEndDrag}
+                    dragElastic={{top:0.2,bottom:0}}>
+          <Center color='green.400'
+                  display='flex' h='200px' flexDirection='column'>
+            <FaArrowUpLong size='5rem'/>
+            <Text>Deslizar arriba</Text>
+          </Center>
+        </motion.div>
       </GridItem>
     </Grid>
   )
@@ -102,7 +137,7 @@ const ContadorResponsive = () => {
 
       </Grid>
 
-      <MotionDrag />
+      <MotionDrag restar={restarContador} sumar={sumarContador} />
     </Center>
 
   )
