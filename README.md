@@ -1,8 +1,13 @@
-# React + Vite
+# Tarea Clase 5
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Descripción
+Contador numérico. Suma +1, resta -1 y resetea el contador. 
 
-Currently, two official plugins are available:
+## Demo
+![demo-clase5-tarea-mobile_3](https://i.imgur.com/qgAVhhs.jpg) ![demo-clase5-tarea-desktop_3](https://i.imgur.com/QQgPNVm.jpg)
+#### [Link demo](https://pablorito14.github.io/ARGPRO2_Clase5_tarea/) 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Recursos
+- [React v18.2.0](https://es.react.dev/)
+- [Chakra-UI v2.8.2](https://chakra-ui.com/)
+- [Framer Motion v10.16.4](https://www.framer.com/motion/)
