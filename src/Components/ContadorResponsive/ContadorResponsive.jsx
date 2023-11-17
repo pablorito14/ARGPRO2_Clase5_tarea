@@ -73,7 +73,7 @@ const MotionDrag = ({restar,sumar}) => {
 
 const ContadorResponsive = () => {
 
-  const [contador,setContador] = useState(1000);
+  const [contador,setContador] = useState(0);
   const [operacion,setOperacion] = useState('');
   const [color,setColor] = useState('');
 
