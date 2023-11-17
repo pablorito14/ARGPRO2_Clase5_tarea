@@ -10,7 +10,7 @@ const Main = () => {
           justifyContent='center' 
           alignItems='center'
           minH='100dvh'>
-        <Container maxW='md'>
+        <Container maxW='md' py='3rem'>
           <ContadorResponsive />
         </Container>
       </Box>
